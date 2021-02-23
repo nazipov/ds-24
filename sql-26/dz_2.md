@@ -64,28 +64,52 @@ public        author_table            id              integer
 Тут не ясно какое поле использовать, 
 
 ```SQL
-SELECT * FROM customer WHERE active = 0;
+SELECT email FROM customer WHERE active = 0;
 ```
 
-```csv
-customer_id;store_id;first_name;last_name;email;address_id;activebool;create_date;last_update;active
-16;2;Sandra;Martin;sandra.martin@sakilacustomer.org;20;1;2006-02-14;"2013-05-26 14:49:45.738";0
-64;2;Judith;Cox;judith.cox@sakilacustomer.org;68;1;2006-02-14;"2013-05-26 14:49:45.738";0
-124;1;Sheila;Wells;sheila.wells@sakilacustomer.org;128;1;2006-02-14;"2013-05-26 14:49:45.738";0
-169;2;Erica;Matthews;erica.matthews@sakilacustomer.org;173;1;2006-02-14;"2013-05-26 14:49:45.738";0
-241;2;Heidi;Larson;heidi.larson@sakilacustomer.org;245;1;2006-02-14;"2013-05-26 14:49:45.738";0
-271;1;Penny;Neal;penny.neal@sakilacustomer.org;276;1;2006-02-14;"2013-05-26 14:49:45.738";0
-315;2;Kenneth;Gooden;kenneth.gooden@sakilacustomer.org;320;1;2006-02-14;"2013-05-26 14:49:45.738";0
-368;1;Harry;Arce;harry.arce@sakilacustomer.org;373;1;2006-02-14;"2013-05-26 14:49:45.738";0
-406;1;Nathan;Runyon;nathan.runyon@sakilacustomer.org;411;1;2006-02-14;"2013-05-26 14:49:45.738";0
-446;2;Theodore;Culp;theodore.culp@sakilacustomer.org;451;1;2006-02-14;"2013-05-26 14:49:45.738";0
-482;1;Maurice;Crawley;maurice.crawley@sakilacustomer.org;487;1;2006-02-14;"2013-05-26 14:49:45.738";0
-510;2;Ben;Easter;ben.easter@sakilacustomer.org;515;1;2006-02-14;"2013-05-26 14:49:45.738";0
-534;1;Christian;Jung;christian.jung@sakilacustomer.org;540;1;2006-02-14;"2013-05-26 14:49:45.738";0
-558;1;Jimmie;Eggleston;jimmie.eggleston@sakilacustomer.org;564;1;2006-02-14;"2013-05-26 14:49:45.738";0
-592;1;Terrance;Roush;terrance.roush@sakilacustomer.org;598;1;2006-02-14;"2013-05-26 14:49:45.738";0
+```
+email
+sandra.martin@sakilacustomer.org
+judith.cox@sakilacustomer.org
+sheila.wells@sakilacustomer.org
+erica.matthews@sakilacustomer.org
+heidi.larson@sakilacustomer.org
+penny.neal@sakilacustomer.org
+kenneth.gooden@sakilacustomer.org
+harry.arce@sakilacustomer.org
+nathan.runyon@sakilacustomer.org
+theodore.culp@sakilacustomer.org
+maurice.crawley@sakilacustomer.org
+ben.easter@sakilacustomer.org
+christian.jung@sakilacustomer.org
+jimmie.eggleston@sakilacustomer.org
+terrance.roush@sakilacustomer.org
 ```
 
 ## вывести все фильмы, выпущенные в 2006 году
 
+там где то 1000 записей, поэтому поставил limit
+
+```SQL
+SELECT title FROM film where release_year = 2006 LIMIT 10;
+```
+
 ## вывести 10 последних платежей за прокат фильмов
+
+```sql
+SELECT * FROM payment order by payment_date DESC limit 10;
+```
+
+```
+payment_id  customer_id   staff_id  rental_id amount  payment_date
+     31925          284          2      12959   0.00  2007-05-14 13:44:29.996577
+     31923          282          2      15430   0.99  2007-05-14 13:44:29.996577
+     31922          279          2      13538   4.99  2007-05-14 13:44:29.996577
+     31924          284          1      12064   5.98  2007-05-14 13:44:29.996577
+     31921          274          1      13486   0.99  2007-05-14 13:44:29.996577
+     31917          267          2      12066   7.98  2007-05-14 13:44:29.996577
+     31920          269          2      12610   0.00  2007-05-14 13:44:29.996577
+     31918          267          2      13713   0.00  2007-05-14 13:44:29.996577
+     31919          269          1      13025   3.98  2007-05-14 13:44:29.996577
+     31926          287          2      14204   0.99  2007-05-14 13:44:29.996577
+```
