@@ -94,6 +94,20 @@ terrance.roush@sakilacustomer.org
 SELECT title FROM film where release_year = 2006 LIMIT 10;
 ```
 
+```
+title
+Chamber Italian
+Grosse Wonderful
+Airport Pollock
+Bright Encounters
+Academy Dinosaur
+Ace Goldfinger
+Adaptation Holes
+Affair Prejudice
+African Egg
+Agent Truman
+```
+
 ## вывести 10 последних платежей за прокат фильмов
 
 ```sql

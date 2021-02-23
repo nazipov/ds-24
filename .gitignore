@@ -54,3 +54,5 @@ geckodriver.log
 
 *.zip
 *.csv
+
+ignore/*
