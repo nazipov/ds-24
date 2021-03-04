@@ -4,30 +4,32 @@ CREATE DATABASE almaz_dz_4;
 \c almaz_dz_4;
 
 CREATE TABLE language (
-   language_id serial PRIMARY KEY,
+   language_id integer PRIMARY KEY,
    language varchar(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE nationality (
-   nationality_id serial PRIMARY KEY,
+   nationality_id integer PRIMARY KEY,
    nationality varchar(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE country (
-   country_id serial PRIMARY KEY,
+   country_id integer PRIMARY KEY,
    country varchar(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE language_nationality (
-  language_id serial NOT NULL,
-  nationality_id serial NOT NULL,
+  language_id integer NOT NULL,
+  nationality_id integer NOT NULL,
+  PRIMARY KEY (language_id, nationality_id),
   CONSTRAINT fk_language FOREIGN KEY(language_id) REFERENCES language(language_id),
   CONSTRAINT fk_nationality FOREIGN KEY(nationality_id) REFERENCES nationality(nationality_id)
 );
 
 CREATE TABLE nationality_country (
-  nationality_id serial NOT NULL,
-  country_id serial NOT NULL,
+  nationality_id integer NOT NULL,
+  country_id integer NOT NULL,
+  PRIMARY KEY (nationality_id, country_id),
   CONSTRAINT fk_nationality FOREIGN KEY(nationality_id) REFERENCES nationality(nationality_id),
   CONSTRAINT fk_country FOREIGN KEY(country_id) REFERENCES country(country_id)
 );
